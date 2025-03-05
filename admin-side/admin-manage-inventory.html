@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A web-based POS inventory and billing system for businesses to manage sales, track inventory, and streamline invoicing efficiently."
+    />
+    <meta
+      name="keywords"
+      content="POS system, POS inventory software, web-based billing system, business management software, sales tracking, inventory management, invoicing solution, PHP MySQL POS, retail management system, small business POS software, e-commerce POS"
+    />
+    <!-- Cite your name here as an author -->
+    <meta name="author" content="Your Name" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="POS Inventory Billing" />
+    <meta
+      property="og:description"
+      content="A web-based POS inventory and billing system for businesses to manage sales, track inventory, and streamline invoicing efficiently."
+    />
+    <!-- URL to your Website -->
+    <meta property="og:image" content="URL_to_your_website_thumbnail" />
+    <!-- Website Link (Hosted/Deployed) -->
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <!-- Google Font - Roboto Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Website Title -->
+    <title>POS Inventory Billing</title>
+    <!-- link for css styling -->
+    <link rel="stylesheet" href="/assets/main.css" />
+    <!-- Fontawesome link -->
+    <script src="https://kit.fontawesome.com/f4eb73099e.js" crossorigin="anonymous"></script>
+
+    <!-- 
+    - Website Icon
+    -->
+    <link
+      rel="shortcut icon"
+      href="/assets/icons/website-icon.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+
+    <section class="products-page">
+
+        <div class="left-side-content">
+
+            <div class="logo-img">
+                <img src="/assets/images/system-logo.png" alt="business-logo" />
+            </div>
+
+            <div class="sidebar">
+
+                <p>Main menu</p>
+                <div class="menu-1">
+                    <i class="fa-solid fa-square-poll-vertical fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-dashboard.html">Dashboard</a>
+                </div>
+                <div class="menu-2">
+                    <i class="fa-solid fa-box fa-lg" style="color: #000000;"></i><a href="#">Inventory</a> <!-- Active Area -->
+                </div>
+                <div class="menu-3">
+                    <i class="fa-solid fa-cash-register fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-manage-sales.html">Sales</a>
+                </div>
+                <div class="menu-3">
+                    <i class="fa-solid fa-hand fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-manage-transaction.html">Transactions</a>
+                </div>
+                <div class="menu-4">
+                    <i class="fa-solid fa-receipt fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-manage-billing.html">Billing</a>
+                </div>
+                <div class="menu-5">
+                    <i class="fa-solid fa-users fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-manage-users.html">Users</a>
+                </div>
+
+                <br>
+                <br>
+
+                <p>General Menu</p>
+                <div class="menu-4">
+                    <i class="fa-solid fa-user fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-account.html">Account</a>
+                </div>
+                <div class="menu-4">
+                    <i class="fa-solid fa-bell fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-notification.html">Notification</a>
+                </div>
+                <div class="menu-4">
+                    <i class="fa-solid fa-circle-question fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-help.html">Help</a>
+                </div>
+                <div class="menu-4">
+                    <i class="fa-solid fa-address-card fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-about.html">About</a>
+                </div>
+                <div class="menu-4">
+                    <i class="fa-solid fa-gear fa-lg" style="color: #000000;"></i><a href="/admin-side/admin-settings.html">Settings</a>
+                </div>
+                <div class="menu-5">
+                    <i class="fa-solid fa-door-open fa-lg" style="color: #000000;"></i></i><a href="/login-page.html">Logout</a>
+                </div>
+
+                <footer class="footer-admin">
+                    <p>&copy; <span id="year"></span>. All rights reserved.</p>
+                </footer>
+                
+            </div>
+
+        </div>
+
+        <div class="container-content-main">
+
+            <div class="admin-inventory-header-content">
+
+                <form action="#" method="POST"> 
+  
+                    <div class="admin-inventory-input-type">
+  
+                        <label for="userInput"><h1 class="title-products">Manage Inventory</h1></label>
+                        <input type="text" id="userInputAdminInv" name="userInput" placeholder="Find product...">
+  
+                        <div class="admin-inventory-container">
+  
+                          <select id="admin-category-inventory" name="options">
+                            <option value="" disabled selected hidden>Select Category</option>
+                            <option value="option1">Print</option>
+                            <option value="option2">T-shirt</option>
+                            <option value="option3">Supplies</option>
+                          </select>
+  
+                          <input type="number" id="adminCodeInv" name="adminCode" placeholder="Code">
+  
+                        </div>
+  
+                    </div>
+  
+                    <div class="admin-button-container-inventory">
+                        <button type="submit">Search</button>
+                        <button type="button" id="addProductBtn">Add Product</button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div id="productModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Add Product</h2>
+                            <p>Enter product details here...</p>
+                            <form class="modal-form-product" action="">
+                                <div class="form-group">
+                                    <label for="item-name-product-modal" class="form-label">Code:</label>
+                                    <input type="number" id="item-name-product" name="item-name-product" placeholder="Item code" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="item-name-product-modal" class="form-label">Name of Item:</label>
+                                    <input type="text" id="item-name-product" name="item-name-product" placeholder="Item name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="item-name-product-modal" class="form-label">Supplier Name:</label>
+                                    <input type="text" id="item-name-product" name="item-name-product" placeholder="Name of the supplier" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity-label-modal-product" class="form-label">Quantity:</label>
+                                    <input type="number" id="quantity-item-product" name="quantity-item-product" placeholder="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity-label-modal-product" class="form-label">Unit Price:</label>
+                                    <input type="number" id="quantity-item-product" name="quantity-item-product" placeholder="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity-label-modal-product" class="form-label">Total Price:</label>
+                                    <input type="number" id="quantity-item-product" name="quantity-item-product" placeholder="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="select-categ-label-modal-product" class="form-label">Item Category:</label>
+                                    <select id="modal-add-item-category" name="options-categ-product">
+                                        <option value="" disabled selected hidden>Select Category</option>
+                                        <option value="option1">Print</option>
+                                        <option value="option2">T-shirt</option>
+                                        <option value="option3">Supplies</option>
+                                    </select>
+                                </div>
+                                <button type="submit" id="itemAdd">Add Item</button>
+                            </form>
+                        </div>
+                    </div>                    
+
+                </form>
+                
+                <table class="table-manage-inventory">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Item Name</th>
+                            <th>Supplier</th>
+                            <th>Stocks</th>
+                            <th>Unit Price</th>
+                            <th>Total Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>936583</td>
+                            <td>Supplies</td>
+                            <td>Great Craft Inc.</td>
+                            <td>500+</td>
+                            <td>100</td>
+                            <td>50,000</td>
+                            <!-- View/Edit Button -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+  
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- link for JavaScript -->
+    <script src="/assets/main.js"></script>
+
+  </body>
+
+</html>
