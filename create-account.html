@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A web-based POS inventory and billing system for businesses to manage sales, track inventory, and streamline invoicing efficiently."
+    />
+    <meta
+      name="keywords"
+      content="POS system, POS inventory software, web-based billing system, business management software, sales tracking, inventory management, invoicing solution, PHP MySQL POS, retail management system, small business POS software, e-commerce POS"
+    />
+    <!-- Cite your name here as an author -->
+    <meta name="author" content="Your Name" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="POS Inventory Billing" />
+    <meta
+      property="og:description"
+      content="A web-based POS inventory and billing system for businesses to manage sales, track inventory, and streamline invoicing efficiently."
+    />
+    <!-- URL to your Website -->
+    <meta property="og:image" content="URL_to_your_website_thumbnail" />
+    <!-- Website Link (Hosted/Deployed) -->
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <!-- Google Font - Roboto Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Website Title -->
+    <title>POS Inventory Billing</title>
+    <!-- link for css styling -->
+    <link rel="stylesheet" href="assets/main.css" /> 
+
+    <!-- 
+    - Website Icon
+    -->
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/website-icon.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <section class="login-page">
+      <div class="container-header-login">
+        <img
+          src="assets/images/system-logo.png"
+          class="business-logo-img"
+          alt="business-logo"
+        />
+
+        <!-- Separate Login Container -->
+        <div class="container-login-wrapper">
+          <!-- Step 1: Account Type Selection -->
+          <div class="container-setup-account" id="setupAccount">
+            <h2>Setup Your Account</h2>
+            <p>I want to create my account as:</p>
+        
+            <div id="radioForm">
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="accountType" value="user" /> User
+                </label>
+                <label>
+                  <input type="radio" name="accountType" value="admin" /> Admin
+                </label>
+              </div>
+        
+              <button type="button" id="nextButton" disabled>Next</button>
+            </div>
+          </div>
+        
+          <!-- Step 2: Enter User Details -->
+          <div class="container-setup-account" id="detailsForm" style="display: none">
+            <h2>Enter Your Details</h2>
+            <p>Fill in the details below:</p>
+        
+            <div id="accountDetails">
+              <input type="text" id="fullName" name="fullName" placeholder="Full Name" required />
+              <input type="text" id="jobRole" name="jobRole" placeholder="Job Role" required />
+              <input type="email" id="email" name="email" placeholder="Email" required />
+              <input type="number" id="contactNumber" name="contactNumber" placeholder="Contact Number" required />
+        
+              <button type="button" id="nextToFinal" disabled>Next</button>
+            </div>
+          </div>
+        
+          <!-- Step 3: Final Confirmation -->
+          <div class="container-setup-account" id="finalForm" style="display: none">
+            <h2>Create your Account</h2>
+            <p>Review and submit your information.</p>
+        
+            <div id="finalFormFields">
+              <input type="text" id="username" placeholder="Username" required />
+              <input type="password" id="password" placeholder="Password" required />
+        
+              <!-- Conditions -->
+              <label class="checkbox-label">
+                <input type="checkbox" id="termsCheckbox">
+                <span>I am an authorized user and employee of this company.</span>
+              </label>
+        
+              <button type="button" id="submitAllInfoCreateAccount">Submit</button>
+            </div>
+            
+            <!-- Status Message - Moved inside the form container and styled for visibility -->
+            <div id="statusMessage" style="margin-top: 20px; padding: 10px; border-radius: 5px; display: none;"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- link for JavaScript -->
+    <script src="assets/main.js"></script>
+  </body>
+</html>
