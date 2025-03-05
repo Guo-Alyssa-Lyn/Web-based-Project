@@ -1,0 +1,2664 @@
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+  /**
+   * colors
+   */
+
+  /* Colors for Login Page */
+
+  --login-wallpaper: hsl(179 54.5% 37.1%);
+  --login-header: hsl(179 54.5% 0%);
+  --login-main-tab: hsl(179 54.5% 100%);
+  --login-text-color1: hsl(168 100% 15.1%);
+  --login-text-color2: hsl(175 41.3% 78.6%);
+  --login-text-color3: hsl(0 0% 74.1%);
+  --login-text-color4: hsl(0 100% 66.1%);
+}
+
+/*-----------------------------------*\
+  #MAIN BODY
+\*-----------------------------------*/
+
+/*------------*\
+  #LOGIN PAGE
+\*------------*/
+
+body {
+  background-color: var(--login-wallpaper);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  overflow-x: hidden;
+}
+
+.container-header-login {
+  background-color: var(--login-header);
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: -50px -60px;
+}
+
+.business-logo-img {
+  height: 250px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+/* NEW: Wrapper to separate login container */
+.container-login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: -30px;
+  margin-right: -30px;
+
+  font-family: "Roboto Condensed", serif;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2), 
+              -5px -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Separate Login Container (Now Independent) */
+.container-login {
+  position: relative;
+  background-color: var(--login-bg, white);
+  border-radius: 0 0 10px 10px;
+  width: 90%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Toggle Buttons */
+.login-toggle {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: -40px; /* Moves the buttons back up */
+  left: 0;
+}
+
+.login-toggle button {
+  flex: 1; /* Ensures both buttons are equal width */
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background-color: #162a2b;
+  color: white;
+  text-align: center;
+  border-radius: 0;
+  transition: 0.3s;
+}
+
+/* Left button (User Login) */
+#user-btn {
+  border-right: 1px solid #214647;
+}
+
+/* Right button (Admin Login) */
+#admin-btn {
+  border-left: 1px solid #214647;
+}
+
+/* Active button styling */
+.login-toggle button.active {
+  background-color: #2c8386;
+  color: black;
+}
+
+/* Login Forms */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 70%; /* Increase width for better balance */
+  max-width: 400px; /* Prevents it from getting too wide */
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.login-form input {
+  width: 100% !important; /* Forces the input fields to be the same width */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left;
+  box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+.login-form button {
+  width: 100% !important; /* Matches button width with inputs */
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--login-header);
+  color: var(--login-main-tab);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.login-form button:hover {
+  background-color: var(--login-text-color1);
+}
+
+/* Hide Admin Form by Default */
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+/*------------*\
+  #SETUP ACCOUNT
+\*------------*/
+
+/* Separate Login Container (Now Independent) */
+.container-setup-account {
+  position: relative;
+  background-color: var(--login-bg, white);
+  border-radius: 0 0 10px 10px;
+  width: 90%;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  align-items: center;
+  justify-items: center;
+}
+
+.container-setup-account h2 {
+  margin-bottom: 50px;
+}
+
+.container-setup-account p {
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.container-setup-account label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  width: auto; /* Keeps radio buttons their natural size */
+  transform: scale(1.2);
+}
+
+.container-setup-account input[type="text"],
+.container-setup-account input[type="email"],
+.container-setup-account input[type="password"],
+.container-setup-account input[type="number"] {
+  width: 50% !important; /* Ensure uniform width */
+  min-width: 250px; /* Prevents shrinking */
+  max-width: 400px; /* Prevents excessive stretching */
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 40px;
+  box-sizing: border-box; /* Ensures padding doesn’t affect width */
+}
+
+/* Hide number input increment arrows */
+.container-setup-account input[type="number"]::-webkit-inner-spin-button,
+.container-setup-account input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container-setup-account input[type="number"] {
+  appearance: none; /* Modern approach for better compatibility */
+  height: 40px;
+}
+
+.container-setup-account button {
+  width: 50% !important; /* Matches input width */
+  min-width: 250px;
+  padding: 9px;
+  border: none;
+  background-color: var(--login-header);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 60px;
+  transition: 0.3s;
+}
+
+.container-setup-account button:hover {
+  background-color: var(--login-text-color1);
+  color: var(--login-main-tab);
+}
+
+/* .container-setup-account button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} */
+
+input[type="text"],
+input[type="email"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  max-width: 40%;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.2); /* Slightly enlarge checkbox */
+  margin: 0; /* Remove any default margins */
+}
+
+.checkbox-label span {
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Status message */
+
+.error-message {
+  color: red;
+  background-color: #ffeeee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.success-message {
+  color: green;
+  background-color: #eeffee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.info-message {
+  color: blue;
+  background-color: #eeeeff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+           #USER SIDE PAGES
+\*-----------------------------------*/
+
+/*---------------------------------*\
+   #SIDEBAR MENU PART - EVERY PAGE
+\*---------------------------------*/
+
+.products-page {
+  display: flex;
+  width: 110%; /* Fix overflow issue */
+  height: 100vh;
+  margin-top: -50px;
+  margin-left: -8px; /* Remove negative margin */
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.left-side-content {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background: #333;
+  color: white;
+  height: 130vh;
+  padding: 0;
+  margin: 0;
+}
+
+.logo-img {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--login-header);
+}
+
+.logo-img img {
+  max-width: 80%;
+  height: auto;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  background-color: var(--login-wallpaper);
+  height: 700px;
+}
+
+.sidebar p {
+  color: var(--login-text-color1);
+  padding: 10px 15px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.sidebar div {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--login-text-color1);
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar div:hover {
+  background: var(--login-text-color2);
+}
+
+.sidebar div:hover a {
+  color: black; /* Ensure text turns black */
+}
+
+.sidebar div:hover i {
+  color: black; /* Ensure icon turns black */
+}
+
+.sidebar i {
+  margin-right: 10px;
+  color: black;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--login-text-color2);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.container-content-main {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  background: #f4f4f4;
+  height: 155vh;
+}
+
+.footer-user {
+  margin-top: 120px;
+}
+
+.footer-admin {
+  margin-top: 55px;
+}
+
+/*---------------*\
+   #PRODUCT PAGE
+\*---------------*/
+
+/* Main Content */
+
+.user-products-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.user-products-input-type {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.title-products {
+  margin-left: 0;
+}
+
+#userInputProducts {
+  width: 50%;
+  border-radius: 5px;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+}
+
+#category-product {
+  width: 30%;
+  height: 35px;
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+}
+
+.user-products-button-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.user-products-button-container button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+  margin-top: 40px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.user-products-button-container button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* #PRODUCT DISPLAY SECTION */
+
+.product-display {
+  margin-left: 60px;
+  margin-top: 80px;
+}
+
+.product-container-row-display {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.product-container {
+  width: 200px;
+  height: 80px;
+  background-color: var(--login-wallpaper);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/*---------------*\
+   #INVENTORY PAGE
+\*---------------*/
+
+.inventory-header-content{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 40px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60%;
+  margin-left: 40px;
+}
+
+.inventory-input-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.inventory-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+#user-category-inventory,
+#userCodeInv
+{
+  height: 40px; /* Ensure same height */
+  width: 40%; /* Same width */
+  min-width: 180px;
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px; /* Adjust padding for uniformity */
+  box-sizing: border-box; /* Ensures padding does not affect width/height */
+  line-height: normal; /* Normalize height across input types */
+  margin-bottom: 30px;
+}
+
+#userInputInv {
+  width: 46.5%; /* Make it longer */
+  min-width: 300px;
+}
+
+#user-category-inventory {
+  appearance: none; /* Remove default browser styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 10px; /* Ensures text inside aligns properly */
+}
+
+/* Ensure select dropdown text aligns properly */
+select {
+  padding-left: 10px;
+}
+
+.button-container-inventory {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.button-container-inventory button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.button-container-inventory button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* #USER INVENTORY TABLE */
+
+.user-table-inventory {
+  margin-top: 40px;
+  width: 80%;
+  border-collapse: collapse;
+  margin-left: 60px;
+}
+
+.user-table-inventory th,
+.user-table-inventory td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.user-table-inventory th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  .inventory-input-type {
+    width: 100%;
+  }
+
+  .inventory-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #user-category-inventory,
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 100%; /* Make inputs full-width on small screens */
+  }
+
+  .button-container-inventory {
+    justify-content: flex-start;
+  }
+
+  .user-table-inventory {
+    width: 100%;
+  }
+}
+
+/*---------------*\
+   #SALES PAGE
+\*---------------*/
+
+.user-sales-header-content{
+  margin-top: 30px;
+  margin-left: 20px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#category-sales {
+  height: 35px;
+  width: 70%; /* Increased width for select */
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+}
+
+#userCodeSales {
+  height: 30px;
+  width: 60%; /* Reduced width for input */
+  border-radius: 5px;
+  border: rgb(218, 218, 218) solid 2px;
+  text-align: center;
+  color: gray;
+}
+
+.user-sales-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: stretch;
+}
+
+#userInput {
+  height: 15px; /* Fixed to match others */
+  width: 94%; /* Full width inside parent */
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+}
+
+.user-input-type-sales {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.user-input-type-sales input, 
+.user-input-type-sales select {
+  height: 20px; /* Consistent height */
+}
+
+/* #USER SALES TABLE */
+
+.user-table-sales {
+  margin-top: 70px;
+  margin-left: 130px;
+}
+
+.user-table-sales th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.user-table-sales td {
+  text-align: center;
+  padding-top: 7px;
+}
+
+/*-----------------------*\
+   #BILLING STATEMENT PAGE
+\*-----------------------*/
+
+.user-billing-header-content{
+  margin-top: 40px;
+  margin-left: 30px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* Consistent size for input fields */
+.date-input {
+  width: 100%;
+  height: 32px; /* Fixed height */
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.billing-container {
+  display: flex;
+  gap: 10px; /* Space between elements */
+  width: 100%;
+  align-items: center; /* Ensures elements align properly */
+}
+
+#date-picker {
+  width: 50%; /* Fixed width */
+  min-width: 50%; /* Prevents resizing */
+  max-width: 50%;
+  height: 35px; /* Fixed height */
+  line-height: 35px; /* Ensures text stays centered */
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px; /* Ensures consistent text size */
+  display: flex;
+  align-items: center; /* Ensures text stays vertically aligned */
+}
+
+/* Force consistent appearance when changing to date type */
+#date-picker:focus {
+  outline: none;
+}
+
+/* Apply styles to input when it changes to date type */
+#date-picker[type="date"] {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+  height: 35px;
+  line-height: 35px;
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+#userCodeBill {
+  width: 50%; /* Ensures both inputs are exactly the same width */
+  height: 35px; /* Fixed height for consistency */
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.user-billing-input-type {
+  width: 100%; /* Ensures the parent container takes full width */
+}
+
+/* Ensures the placeholder and date text align properly */
+#date-picker::placeholder {
+  color: gray;
+  font-size: 14px;
+  line-height: 35px;
+}
+
+.button-container-bill button{
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.button-container-bill button:hover{
+  background-color: var(--login-text-color1);
+  color: white;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* #USER BILLING TABLE */
+
+.user-table-billing {
+  margin-top: 70px;
+  margin-left: 60px;
+}
+
+.user-table-billing th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.user-table-billing td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* Modal Styling - Add Bill Feature */
+
+.user-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Centering using flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-bill-modal-content {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 500px; /* Ensures it doesn't get too wide */
+  text-align: center;
+  position: absolute;
+
+  /* Ensures exact centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-form-bill-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.user-bill-form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 16px;
+  width: 150px;
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* Apply uniform height and width to inputs, select, and button */
+.modal-form-bill-user input,
+#billAddUser {
+  height: 35px !important; /* Force height */
+  width: 30% !important; /* Force width */
+  min-width: 250px;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc; /* Ensure a consistent border */
+  display: block; /* Ensures proper box sizing */
+}
+
+/* Explicit styling for number input & select */
+.modal-form-bill-user input[type="number"],
+.modal-form-bill-user input[type="text"],
+.modal-form-bill-user input[type="time"],
+.modal-form-bill-user input[type="date"] {
+  border: 1px solid #ccc;
+}
+
+#billAddUser {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#billAddUser:hover {
+  background-color: #0056b3;
+}
+
+/*--------------------*\
+   #PROFILE USER PAGE
+\*--------------------*/
+
+.user-profile-container{
+  margin-top: 60px;
+  margin-left: 70px;
+}
+
+.profile-user img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 40px;
+}
+
+.display-profile-user-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.display-info-user-column{
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.display-info-user-column h2{
+  margin-bottom: 15px;
+}
+
+.display-info-user-column strong{
+  margin-bottom: -20px;
+}
+.display-info-user-column p{
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+/* ------ Calendar Active -------- */
+
+.calendar {
+  width: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 50px;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+.day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.day:hover, .active {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Time & Container */
+
+.time-container-user {
+  background-color: white;
+  width: 200px; /* Reduced width */
+  height: 100px; /* Reduced height */
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers time and text */
+  justify-content: center; /* Centers vertically */
+}
+
+.time-user {
+  font-size: 26px; /* Reduce font size */
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.time-container-user p {
+  font-size: 20px; /* Reduce text size */
+  margin: 0;
+}
+
+.row-display-timeandcalendar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Reduce gap if needed */
+  align-items: left;
+  justify-content: left;
+}
+
+/*--------------------------*\
+   #USER EDIT PROFILE PAGE
+\*--------------------------*/
+
+.user-profile-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  text-align: center;
+  margin-right: 100px;
+  margin-top: 40px;
+}
+
+.user-profile-edit-container h2 {
+  margin-top: 80px;
+}
+
+.profile-edit-user img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.display-profile-edit-user-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.form-user-profile-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-user-profile-edit input {
+  height: 30px; /* Uniform height */
+  width: 40%; /* Same width */
+  margin-bottom: 15px; /* Space between elements */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.form-user-profile-edit button {
+  height: 40px; /* Uniform height */
+  width: 41%; /* Same width */
+  margin-top: 40px;
+  margin-bottom: 40px; /* Space between elements */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form-user-profile-edit button {
+  cursor: not-allowed;
+  background-color: #ccc;
+  border: none;
+}
+
+.display-profile-edit-user-column a {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  margin-left: 30px;
+}
+
+.form-user-profile-edit input{
+  width: 40%;
+}
+
+/*--------------------------*\
+   #NOTIFICATION PAGE
+\*--------------------------*/
+
+.user-header-notification{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+/*---------------*\
+   #ABOUT US PAGE
+\*---------------*/
+
+.about-us-content-user {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.about-us-image-and-description {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically in the center */
+  justify-content: flex-start; /* Aligns content more to the left */
+  gap: 20px; /* Adds space between the image and text */
+  text-align: left; /* Ensures text alignment is readable */
+  max-width: 800px; /* Adjust as needed */
+  margin: 80px auto 0 100px; /* Lessens the left margin */
+}
+
+.about-us-image-and-description img {
+  height: 300px;
+  width: 300px;
+  background-color: var(--login-header);
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.about-us-image-and-description p {
+  max-width: 500px; /* Ensures the text does not get too wide */
+  font-size: 20px;
+}
+
+/*-----------------*\
+     #HELP PAGE
+\*-----------------*/
+
+.help-content-user {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.user-help-info-row {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 40px;
+  margin-left: -140px;
+  margin-right: 40px;
+  gap: 10px; /* Adds spacing between icon and text */
+}
+
+.user-help-info-row i {
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+  margin-top: -40px;
+  margin-left: -30px;
+}
+
+.user-help-info-row p {
+  margin: 0;
+  max-width: 900px; /* Adjust as needed */
+}
+
+/*--------------------*\
+     #SETTINGS PAGE
+\*--------------------*/
+
+.settings-content-user {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.title-settings-user {
+  display: flex;
+  flex-direction: row;
+}
+
+.title-settings-user h1 {
+  margin-top: -12px;
+  margin-left: 20px;
+}
+
+.settings-link-user {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 250px;
+}
+
+.general-settings-user {
+  margin-top: 60px;
+}
+
+.settings-link-user li{
+  list-style: none;
+}
+
+/*-----------------------------------------*\
+    #SETTINGS/CHANGE ACCOUNT DETAILS PAGE
+\*-----------------------------------------*/
+
+.user-change-account-container{
+  margin-right: 100px;
+}
+
+.user-header-account-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.user-header-account-details h1 {
+  margin-left: 10px;
+}
+
+.user-form-old-new-details-change p {
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+
+.edit-account-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures vertical centering */
+}
+
+.user-form-old-new-details-change {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.user-form-old-new-details-change input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-form-old-new-details-change button {
+  width: 100%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-header);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 60px;
+}
+
+.user-form-old-new-details-change button:hover {
+  width: 100%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-text-color1);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+}
+
+/*------------------------------------*\
+    #SETTINGS/DELETE ACCOUNT PAGE
+\*------------------------------------*/
+
+.user-delete-account-container{
+  margin-right: 100px;
+}
+
+.user-header-delete-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.user-header-delete-account h1 {
+  margin-left: 10px;
+}
+
+.user-fill-requirements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centers everything vertically */
+}
+
+.user-delete-requirements p {
+  margin-top: -120px;
+  margin-bottom: 70px;
+}
+
+.user-delete-requirements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.user-delete-requirements input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-delete-requirements button {
+  width: 102%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-header);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 50px;
+}
+
+.user-delete-requirements button:hover {
+  width: 102%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-text-color1);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 50px;
+}
+
+/*-----------------------------------*\
+    #SETTINGS/LOGIN ACTIVITY PAGE
+\*-----------------------------------*/
+
+.user-header-login-activity{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.user-header-login-activity h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+/*----------------------------------*\
+    #SETTINGS/TIME ZONE SETUP PAGE
+\*----------------------------------*/
+
+.user-header-time-zone{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.user-header-time-zone h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+/*----------------------------------*\
+    #SETTINGS/CHANGE LANGUAGE PAGE
+\*----------------------------------*/
+
+.user-header-change-language{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.user-header-change-language h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+            #ADMIN SIDE PAGES
+\*-----------------------------------*/
+
+/*----------------------*\
+      #DASHBOARD PAGE
+\*----------------------*/
+
+.flex-column-display {
+  margin-left: 60px;
+  margin-top: 60px;
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.flex-column-display h1 {
+  font-size: 40px;
+}
+
+.flex-column-display h3 {
+  margin-bottom: -10px;
+}
+
+.analytics-row-display {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.sales-analytic-container {
+  width: 200px;
+  height: 80px;
+  background-color: var(--login-wallpaper);
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.inventory-analytic-container {
+  width: 200px;
+  height: 80px;
+  background-color: var(--login-wallpaper);
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.users-active-analytic-container {
+  width: 200px;
+  height: 80px;
+  background-color: var(--login-wallpaper);
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.users-active-container p {
+  margin-top: 25px;
+}
+
+.flex-data {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.sales-analytics-title-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#month-statistics {
+  height: 35px;
+  width: 15%;
+  border-radius: 5px;
+  text-align: left;
+  border: rgb(218, 218, 218) solid 2px;
+  color: gray;
+  background-color: var(--login-main-tab);
+  margin-top: 15px;
+}
+
+.inventory-analytics-title-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.users-analytics-title-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/*---------------------------*\
+   #MANAGE TRANSACTION
+\*---------------------------*/
+
+.admin-transactions-header-content {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.admin-transaction-input-type {
+  width: 50%;
+}
+
+.admin-transaction-container {
+  display: flex;
+  gap: 10px; /* Space between elements */
+  width: 100%; /* Ensures full width usage */
+  align-items: center;
+}
+
+#admin-transact-date-picker {
+  flex: 2; /* Makes it take more space */
+  height: 40px;
+  min-width: 250px; /* Ensures it’s noticeably longer */
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+#adminCodeTransac,
+#adminCreatorInput {
+  flex: 1; /* Makes both elements share the remaining space equally */
+  height: 40px;
+  min-width: 150px; /* Ensures they don't shrink too much */
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.table-transaction {
+  margin-top: 70px;
+  margin-left: 30px;
+}
+
+.table-transaction th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.table-transaction td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/*---------------------------*\
+   #MANAGE SALES
+\*---------------------------*/
+
+.admin-sales-header-content{
+  margin-top: 40px;
+  margin-left: 30px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.admin-sales-container{
+  width: 100%; /* Ensures both inputs expand to match userInputAdminInv */
+}
+
+.admin-sales-input-type {
+  width: 50%;
+}
+
+#adminInputSales{
+  width: 100%; /* Ensure it takes full width */
+  max-width: 100%;
+  min-width: 300px;
+}
+
+#admin-category-sales,
+#adminCodeSales {
+  flex: 1; /* Makes both elements take equal width */
+  height: 40px; /* Ensures same height */
+  min-width: 150px; /* Adjust as needed */
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.admin-button-container-sales {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button-container-sales button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.admin-button-container-sales button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+}
+
+.table-sales {
+  margin-top: 70px;
+  margin-left: 60px;
+}
+
+.table-sales th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.table-sales td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/*---------------------------*\
+   #MANAGE INVENTORY
+\*---------------------------*/
+
+.admin-inventory-container{
+  display: flex;
+  gap: 10px; /* Adds spacing between elements */
+  width: 100%;
+}
+
+.admin-inventory-header-content{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.admin-inventory-container{
+  width: 100%; /* Ensures both inputs expand to match userInputAdminInv */
+}
+
+.table-manage-inventory {
+  margin-top: 70px;
+  margin-left: 35px;
+}
+
+.admin-inventory-input-type {
+  width: 50%;
+}
+
+#admin-category-inventory,
+#adminCodeInv {
+  flex: 1; /* Makes both elements take equal width */
+  height: 40px; /* Ensures same height */
+  min-width: 150px; /* Adjust as needed */
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+#userInputAdminInv {
+  width: 100%; /* Ensure it takes full width */
+  max-width: 100%;
+  min-width: 300px;
+}
+
+.admin-button-container-inventory {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button-container-inventory button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.admin-button-container-inventory button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+}
+
+.table-manage-inventory th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.table-manage-inventory td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* Modal Styling - Add Product Feature */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Centering using flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 500px; /* Ensures it doesn't get too wide */
+  text-align: center;
+  position: absolute;
+
+  /* Ensures exact centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-form-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 16px;
+  width: 150px;
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* Apply uniform height and width to inputs, select, and button */
+.modal-form-product input,
+.modal-form-product select,
+#itemAdd {
+  height: 35px !important; /* Force height */
+  width: 30% !important; /* Force width */
+  min-width: 250px;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc; /* Ensure a consistent border */
+  display: block; /* Ensures proper box sizing */
+}
+
+/* Explicit styling for number input & select */
+.modal-form-product input[type="number"],
+.modal-form-product input[type="text"] {
+  border: 1px solid #ccc;
+}
+
+/* Fix select dropdown differences */
+.modal-form-product select {
+  appearance: none; /* Remove default select styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 10px; /* Space for text */
+  line-height: normal; /* Ensures select doesn't resize */
+}
+
+#itemAdd {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#itemAdd:hover {
+  background-color: #0056b3;
+}
+
+/*---------------------------*\
+   #MANAGE BILLING
+\*---------------------------*/
+
+.admin-billing-header-content {
+  margin-top: 40px;
+  margin-left: 30px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.admin-billing-input-type {
+  width: 50%;
+}
+
+.admin-billing-container {
+  display: flex;
+  gap: 10px; /* Adds space between inputs */
+  width: 100%; /* Ensures full width */
+  align-items: center; /* Aligns inputs properly */
+}
+
+#admin-billing-date-picker,
+#adminBillingCode {
+  flex: 1; /* Makes both inputs take equal width */
+  min-width: 40%; /* Ensures both are at least 40% wide */
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.admin-button-container-billing {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button-container-billing button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.admin-button-container-billing button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+}
+
+.table-billing {
+  margin-top: 70px;
+  margin-left: 50px;
+}
+
+.table-billing th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.table-billing td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* Modal Styling - Add Bill Feature */
+
+.modal-billing {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Centering using flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-billing {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 500px; /* Ensures it doesn't get too wide */
+  text-align: center;
+  position: absolute;
+
+  /* Ensures exact centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-form-billing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-group-billing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 16px;
+  width: 150px;
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* Apply uniform height and width to inputs, select, and button */
+.modal-form-billing input,
+#newBillAdd {
+  height: 35px !important; /* Force height */
+  width: 30% !important; /* Force width */
+  min-width: 250px;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc; /* Ensure a consistent border */
+  display: block; /* Ensures proper box sizing */
+}
+
+/* Explicit styling for number input & select */
+.modal-form-billing input[type="number"],
+.modal-form-billing input[type="text"],
+.modal-form-billing input[type="time"],
+.modal-form-billing input[type="date"] {
+  border: 1px solid #ccc;
+}
+
+#newBillAdd {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#newBillAdd:hover {
+  background-color: #0056b3;
+}
+
+/*---------------------------*\
+   #MANAGE USERS PAGE
+\*---------------------------*/
+
+.admin-manage-user-header-content {
+  margin-top: 40px;
+  margin-left: 30px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.admin-user-manage-input-type {
+  width: 50%;
+}
+
+/* Make the two inputs match its total width */
+.admin-manage-user-container {
+  display: flex;
+  gap: 10px; /* Space between elements */
+  width: 100%; /* Matches parent width */
+}
+
+/* Ensure all inputs have the same style */
+#adminInputManageUser,
+#admin-category-manage-user,
+#adminManageUserCode {
+  height: 40px; /* Match height */
+  border-radius: 5px;
+  border: 2px solid rgb(218, 218, 218);
+  color: gray;
+  background-color: var(--login-main-tab);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+/* Set width for primary input */
+#adminInputManageUser {
+  width: 100%; /* Main input width */
+  min-width: 300px;
+}
+
+#admin-category-manage-user,
+#adminManageUserCode {
+  flex: 1; /* Ensures equal width */
+  min-width: 150px; /* Prevents shrinking too much */
+}
+
+.admin-button-container-manage-users {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button-container-manage-users button {
+  width: 175px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--login-wallpaper);
+  color: black;
+  border: white solid 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.admin-button-container-manage-users button:hover {
+  background-color: var(--login-text-color1);
+  color: white;
+}
+
+.table-users {
+  margin-top: 70px;
+  margin-left: 100px;
+}
+
+.table-users th {
+  background-color: var(--login-wallpaper);
+  color: var(--login-main-tab);
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+.table-users td {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/*----------------------*\
+   #ADMIN PROFILE PAGE
+\*----------------------*/
+
+.admin-profile-container{
+  margin-top: 60px;
+  margin-left: 70px;
+}
+
+.profile-admin img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 40px;
+}
+
+.display-profile-admin-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.display-info-admin-column{
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.display-info-admin-column h2{
+  margin-bottom: 15px;
+}
+
+.display-info-admin-column strong{
+  margin-bottom: -20px;
+}
+.display-info-admin-column p{
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+/* ------ Calendar Active -------- */
+
+.calendar {
+  width: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 50px;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+.day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.day:hover, .active {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Time & Container */
+
+.time-container-admin{
+  background-color: white;
+  width: 200px; /* Reduced width */
+  height: 100px; /* Reduced height */
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers time and text */
+  justify-content: center; /* Centers vertically */
+}
+
+.time-admin {
+  font-size: 26px; /* Reduce font size */
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.time-container-admin p{
+  font-size: 20px; /* Reduce text size */
+  margin: 0;
+}
+
+.row-display-timeandcalendar{
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Reduce gap if needed */
+  align-items: left;
+  justify-content: left;
+}
+
+/*--------------------------*\
+   #ADMIN EDIT PROFILE PAGE
+\*--------------------------*/
+
+.admin-profile-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  text-align: center;
+  margin-right: 100px;
+  margin-top: 40px;
+}
+
+.admin-profile-edit-container h2 {
+  margin-top: 80px;
+}
+
+.profile-edit-admin img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.display-profile-edit-admin-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.form-admin-profile-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-admin-profile-edit input {
+  height: 30px; /* Uniform height */
+  width: 40%; /* Same width */
+  margin-bottom: 15px; /* Space between elements */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.form-admin-profile-edit button {
+  height: 40px; /* Uniform height */
+  width: 41%; /* Same width */
+  margin-top: 40px;
+  margin-bottom: 40px; /* Space between elements */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form-admin-profile-edit button {
+  cursor: not-allowed;
+  background-color: #ccc;
+  border: none;
+}
+
+.display-profile-edit-admin-column a {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  margin-left: 30px;
+}
+
+.form-admin-profile-edit input{
+  width: 40%;
+}
+
+/*-----------------*\
+     #ABOUT PAGE
+\*-----------------*/
+
+.about-us-content-admin {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.about-us-image-and-description {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically in the center */
+  justify-content: flex-start; /* Aligns content more to the left */
+  gap: 20px; /* Adds space between the image and text */
+  text-align: left; /* Ensures text alignment is readable */
+  max-width: 800px; /* Adjust as needed */
+  margin: 80px auto 0 100px; /* Lessens the left margin */
+}
+
+.about-us-image-and-description img {
+  height: 300px;
+  width: 300px;
+  background-color: var(--login-header);
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.about-us-image-and-description p {
+  max-width: 500px; /* Ensures the text does not get too wide */
+  font-size: 20px;
+}
+
+/*-----------------*\
+     #HELP PAGE
+\*-----------------*/
+
+.help-content-admin {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.admin-help-info-row {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 40px;
+  margin-left: -140px;
+  margin-right: 40px;
+  gap: 10px; /* Adds spacing between icon and text */
+}
+
+.admin-help-info-row i {
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+  margin-top: -40px;
+  margin-left: -30px;
+}
+
+.admin-help-info-row p {
+  margin: 0;
+  max-width: 900px; /* Adjust as needed */
+}
+
+/*--------------------*\
+     #SETTINGS PAGE
+\*--------------------*/
+
+.settings-content {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.title-settings {
+  display: flex;
+  flex-direction: row;
+}
+
+.title-settings h1 {
+  margin-top: -12px;
+  margin-left: 20px;
+}
+
+.settings-link{
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 250px;
+}
+
+.general-settings{
+  margin-top: 60px;
+}
+
+.settings-link li{
+  list-style: none;
+}
+
+/*--------------------*\
+   #NOTIFICATION PAGE
+\*--------------------*/
+
+.admin-header-title{
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+/*-----------------------------------------*\
+    #SETTINGS/CHANGE ACCOUNT DETAILS PAGE
+\*-----------------------------------------*/
+
+.admin-change-account-container{
+  margin-right: 120px;
+}
+
+.admin-header-account-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.admin-header-account-details h1 {
+  margin-left: 10px;
+}
+
+.edit-account-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centers everything vertically */
+}
+
+.form-old-new-details p {
+  margin-bottom: 10px;
+}
+
+.admin-change-account-p2{
+  margin-top: 50px;
+}
+
+.form-old-new-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.form-old-new-details input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-old-new-details button {
+  width: 100%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-header);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 60px;
+}
+
+.form-old-new-details button:hover {
+  width: 100%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: var(--login-text-color1);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 60px;
+}
+
+/*------------------------------------*\
+    #SETTINGS/DELETE ACCOUNT PAGE
+\*------------------------------------*/
+
+.admin-delete-account-container{
+  margin-right: 100px;
+}
+
+.admin-header-delete-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.admin-header-delete-account h1 {
+  margin-left: 0px;
+}
+
+.admin-fill-requirements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures full height centering */
+}
+
+.admin-delete-requirements p {
+  margin-top: -100px;
+  margin-bottom: 70px;
+}
+
+.admin-delete-requirements input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-delete-requirements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.admin-delete-requirements button {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  background-color: var(--login-header);
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 60px;
+}
+
+.admin-delete-requirements button:hover {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  background-color: var(--login-text-color1);
+  color: white;
+  border: none;
+}
+
+/*-----------------------------------*\
+    #SETTINGS/LOGIN ACTIVITY PAGE
+\*-----------------------------------*/
+
+.admin-header-login-activity{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.admin-header-login-activity h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+/*----------------------------------*\
+    #SETTINGS/TIME ZONE SETUP PAGE
+\*----------------------------------*/
+
+.admin-header-time-zone{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.admin-header-time-zone h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+/*----------------------------------*\
+    #SETTINGS/CHANGE LANGUAGE PAGE
+\*----------------------------------*/
+
+.admin-header-change-language{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.admin-header-change-language h1{
+  margin-left: 10px;
+  margin-top: -10px;
+}
